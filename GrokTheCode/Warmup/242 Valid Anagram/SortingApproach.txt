@@ -1,0 +1,35 @@
+
+// C++ 
+
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        sort(s.begin(), s.end());
+        sort(t.begin(), t.end());
+        return s == t;
+    }
+};
+
+// Java
+
+import java.util.Arrays;
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        char[] sChars = s.toCharArray();
+        char[] tChars = t.toCharArray();
+        
+        Arrays.sort(sChars);
+        Arrays.sort(tChars);
+        
+        return Arrays.equals(sChars, tChars);
+    }
+}
+
+//Python
+
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        sorted_s = sorted(s)
+        sorted_t = sorted(t)
+        return sorted_s == sorted_t

@@ -1,0 +1,75 @@
+// C++
+
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        unordered_map<char, int> count;
+        
+        // Count the frequency of characters in string s
+        for (auto x : s) {
+            count[x]++;
+        }
+        
+        // Decrement the frequency of characters in string t
+        for (auto x : t) {
+            count[x]--;
+        }
+        
+        // Check if any character has non-zero frequency
+        for (auto x : count) {
+            if (x.second != 0) {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+};
+
+// Java 
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        Map<Character, Integer> count = new HashMap<>();
+        
+        // Count the frequency of characters in string s
+        for (char x : s.toCharArray()) {
+            count.put(x, count.getOrDefault(x, 0) + 1);
+        }
+        
+        // Decrement the frequency of characters in string t
+        for (char x : t.toCharArray()) {
+            count.put(x, count.getOrDefault(x, 0) - 1);
+        }
+        
+        // Check if any character has non-zero frequency
+        for (int val : count.values()) {
+            if (val != 0) {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+}
+
+//Python 
+
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        count = defaultdict(int)
+        
+        # Count the frequency of characters in string s
+        for x in s:
+            count[x] += 1
+        
+        # Decrement the frequency of characters in string t
+        for x in t:
+            count[x] -= 1
+        
+        # Check if any character has non-zero frequency
+        for val in count.values():
+            if val != 0:
+                return False
+        
+        return True
